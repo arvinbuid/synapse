@@ -127,7 +127,13 @@ function PostCard({post, dbUserId}: PostCardProps) {
           {/* Post Image */}
           {post.image && (
             <div className='rounded-lg overflow-hidden'>
-              <Image src={post.image} alt='Post content' className='w-full h-auto object-cover' />
+              <Image
+                src={post.image}
+                alt='Post content'
+                width={600}
+                height={600}
+                className='w-full h-auto object-cover'
+              />
             </div>
           )}
 
