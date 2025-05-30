@@ -1,14 +1,23 @@
-import type {Metadata} from "next";
-
-import {ClerkProvider} from "@clerk/nextjs";
-import {Inter} from "next/font/google";
 import "./globals.css";
-import {ThemeProvider} from "@/components/ThemeProvider";
-import {Toaster} from "react-hot-toast";
 import Navbar from "@/components/Navbar";
 import Sidebar from "@/components/Sidebar";
 
-const inter = Inter({subsets: ["latin"]});
+import type { Metadata } from "next";
+import { ClerkProvider } from "@clerk/nextjs";
+import { Inter, DM_Sans } from "next/font/google";
+import { ThemeProvider } from "@/components/ThemeProvider";
+import { Toaster } from "react-hot-toast";
+
+const fontInter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+});
+
+const fontSans = DM_Sans({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-sans",
+});
 
 export const metadata: Metadata = {
   title: "Synapse",
@@ -23,7 +32,7 @@ export default function RootLayout({
   return (
     <ClerkProvider>
       <html lang='en' suppressHydrationWarning>
-        <body className={inter.className}>
+        <body className={`${fontInter.variable} ${fontSans.variable} font-inter antialiased`}>
           <ThemeProvider
             attribute='class'
             defaultTheme='system'
